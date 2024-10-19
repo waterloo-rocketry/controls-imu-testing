@@ -1,0 +1,46 @@
+20:07:30 **** Incremental Build of configuration Debug for project IMU_Testing ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L073xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:150:24: warning: pointer targets in passing argument 1 of 'LSM6DSO_Read' differ in signedness [-Wpointer-sign]
+  150 |           LSM6DSO_Read(&x,&y,&z);
+      |                        ^~
+      |                        |
+      |                        int16_t * {aka short int *}
+../Core/Src/main.c:71:29: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int16_t *' {aka 'short int *'}
+   71 | void LSM6DSO_Read(uint16_t *x, uint16_t *y, uint16_t *z) {
+      |                   ~~~~~~~~~~^
+../Core/Src/main.c:150:27: warning: pointer targets in passing argument 2 of 'LSM6DSO_Read' differ in signedness [-Wpointer-sign]
+  150 |           LSM6DSO_Read(&x,&y,&z);
+      |                           ^~
+      |                           |
+      |                           int16_t * {aka short int *}
+../Core/Src/main.c:71:42: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int16_t *' {aka 'short int *'}
+   71 | void LSM6DSO_Read(uint16_t *x, uint16_t *y, uint16_t *z) {
+      |                                ~~~~~~~~~~^
+../Core/Src/main.c:150:30: warning: pointer targets in passing argument 3 of 'LSM6DSO_Read' differ in signedness [-Wpointer-sign]
+  150 |           LSM6DSO_Read(&x,&y,&z);
+      |                              ^~
+      |                              |
+      |                              int16_t * {aka short int *}
+../Core/Src/main.c:71:55: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'int16_t *' {aka 'short int *'}
+   71 | void LSM6DSO_Read(uint16_t *x, uint16_t *y, uint16_t *z) {
+      |                                             ~~~~~~~~~~^
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:52:22: warning: 'Accmtr_CTRL_REG' defined but not used [-Wunused-const-variable=]
+   52 | static const uint8_t Accmtr_CTRL_REG = 0x10;
+      |                      ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "IMU_Testing.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/Users/arpitarunkumaar/Desktop/controls-imu-testing/IMU_Testing/STM32L073RZTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU_Testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: IMU_Testing.elf
+ 
+arm-none-eabi-size  IMU_Testing.elf 
+arm-none-eabi-objdump -h -S IMU_Testing.elf  > "IMU_Testing.list"
+   text	   data	    bss	    dec	    hex	filename
+  34608	     12	   1788	  36408	   8e38	IMU_Testing.elf
+Finished building: default.size.stdout
+ 
+Finished building: IMU_Testing.list
+ 
+
+20:07:31 Build Finished. 0 errors, 4 warnings. (took 853ms)
+

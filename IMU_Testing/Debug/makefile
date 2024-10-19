@@ -60,8 +60,8 @@ all: main-build
 main-build: IMU_Testing.elf secondary-outputs
 
 # Tool invocations
-IMU_Testing.elf IMU_Testing.map: $(OBJS) $(USER_OBJS) /Users/arpitarunkumaar/Desktop/cansw_processor_stm/IMU_Testing/STM32L073RZTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "IMU_Testing.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"/Users/arpitarunkumaar/Desktop/cansw_processor_stm/IMU_Testing/STM32L073RZTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU_Testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+IMU_Testing.elf IMU_Testing.map: $(OBJS) $(USER_OBJS) /Users/arpitarunkumaar/Desktop/controls-imu-testing/IMU_Testing/STM32L073RZTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "IMU_Testing.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"/Users/arpitarunkumaar/Desktop/controls-imu-testing/IMU_Testing/STM32L073RZTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="IMU_Testing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
